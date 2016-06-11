@@ -11,8 +11,8 @@ end
 
 function states.setState(name)
    if states.states[name] then
-      print("no")
       states.currentState = name
+      states.load(states.currentState)
       print(states.currentState)
    end
 end
@@ -22,15 +22,6 @@ function states.load(name)
       states.states[name]:load()
    end
 end
-
-function states.loadAll()
-   for k, v in pairs(states.states) do
-      if v.load then
-         v:load()
-      end
-   end
-end
-
 
 function states.draw()
    if states.currentState ~= "" then
