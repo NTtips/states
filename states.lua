@@ -3,10 +3,15 @@ local states = {}
 states.states = {}
 states.currentState = ""
 
-function states.newState(name, table)
-   if not states.states[name] then
-      states.states[name] = table
-   end
+function states.init(statetable, startState)
+  for k, v in pairs(statetable) do
+    if not states.states[v.name] then
+      states.states[v.name] = v
+    end
+  end
+  if startState then
+    states.setState(startState)
+  end
 end
 
 function states.setState(name)
