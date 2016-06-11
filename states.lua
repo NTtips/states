@@ -48,18 +48,18 @@ function states.update(dt)
    end
 end
 
-function states.mousepressed(button, x, y)
+function states.mousepressed(x, y, button)
    if states.currentState ~= "" then
       if states.states[states.currentState].mousepressed then
-         states.states[states.currentState]:mousepressed(button, x, y)
+         states.states[states.currentState]:mousepressed(x, y, button)
       end
    end
 end
 
-function states.mousereleased(button, x, y)
+function states.mousereleased(x, y, button)
    if states.currentState ~= "" then
       if states.states[states.currentState].mousereleased then
-         states.states[states.currentState]:mousereleased(button, x, y)
+         states.states[states.currentState]:mousereleased(x, y, button)
       end
    end
 end
