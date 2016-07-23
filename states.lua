@@ -10,14 +10,14 @@ function states.init(statetable, startState)
     end
   end
   if startState then
-    states.setState(startState)
+    states.setState(startState, true)
   end
 end
 
-function states.setState(name)
+function states.setState(name, loadBool)
    if states.states[name] then
       states.currentState = name
-      states.load(states.currentState)
+      if loadBool states.load(states.currentState) else end
       print(states.currentState)
    end
 end
