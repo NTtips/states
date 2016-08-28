@@ -17,7 +17,7 @@ end
 function states.setState(name, loadBool)
    if states.states[name] then
       states.currentState = name
-      if loadBool states.load(states.currentState) else end
+      if loadBool then states.load(states.currentState) else end
       print(states.currentState)
    end
 end
