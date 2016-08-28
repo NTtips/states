@@ -60,18 +60,18 @@ function states.mousereleased(x, y, button)
    end
 end
 
-function states.keypressed(key, unicode)
+function states.keypressed(key, scancode, isrepeat)
    if states.currentState ~= "" then
       if states.states[states.currentState].keypressed then
-         states.states[states.currentState]:keypressed(key, unicode)
+         states.states[states.currentState]:keypressed(key, scancode, isrepeat)
       end
    end
 end
 
-function states.keyreleased(key, unicode)
+function states.keyreleased(key, scancode, isrepeat)
    if states.currentState ~= "" then
       if states.states[currentState].keyreleased then
-         states.states[states.currentState]:keyreleased(key, unicode)
+         states.states[states.currentState]:keyreleased(key, scancode, isrepeat)
       end
    end
 end
