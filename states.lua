@@ -1,4 +1,3 @@
-
 local states = {}
 states.states = {}
 states.currentState = ""
@@ -18,7 +17,7 @@ function states.setState(name, loadBool)
    if states.states[name] then
       states.currentState = name
       if loadBool then states.load(states.currentState) else end
-      print(states.currentState)
+      print("set state to " .. states.currentState)
    end
 end
 
@@ -44,18 +43,26 @@ function states.update(dt)
    end
 end
 
-function states.mousepressed(x, y, button)
+function states.mousepressed(x, y, button, istouch, presses)
    if states.currentState ~= "" then
       if states.states[states.currentState].mousepressed then
-         states.states[states.currentState]:mousepressed(x, y, button)
+         states.states[states.currentState]:mousepressed(x, y, button, istouch, presses)
       end
    end
 end
 
-function states.mousereleased(x, y, button)
+function states.mousereleased(x, y, button, istouch, presses)
    if states.currentState ~= "" then
       if states.states[states.currentState].mousereleased then
-         states.states[states.currentState]:mousereleased(x, y, button)
+         states.states[states.currentState]:mousereleased(x, y, button, istouch, presses)
+      end
+   end
+end
+
+function states.wheelmoved(x, y)
+   if states.currentState ~= "" then
+      if states.states[states.currentState].wheelmoved then
+         states.states[states.currentState]:wheelmoved(x, y)
       end
    end
 end
