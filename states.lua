@@ -77,7 +77,7 @@ end
 
 function states.keyreleased(key, scancode, isrepeat)
    if states.currentState ~= "" then
-      if states.states[currentState].keyreleased then
+      if states.states[states.currentState].keyreleased then
          states.states[states.currentState]:keyreleased(key, scancode, isrepeat)
       end
    end
